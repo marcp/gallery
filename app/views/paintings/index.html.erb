@@ -5,4 +5,14 @@
 </div>
 <div class="clear"></div>
 
-<p><%= link_to "Add a Painting", new_painting_path %></p>
+<%= form_for Painting.new do |f| %>
+  <%= f.label :image, "Upload images:" %>
+  <%= f.file_field :image, multiple: true, name: "painting[image]" %>
+<% end %>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
